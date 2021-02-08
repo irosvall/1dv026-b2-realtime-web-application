@@ -1,0 +1,46 @@
+{
+  "name": "assignment-b2-realtime-web-application",
+  "version": "1.0.0",
+  "description": "1DV026 - Assignment B2 - Realtime Web Application",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon --inspect -r dotenv/config src/server.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv026/student/ir222gn/assignment-b2-realtime-web-application.git"
+  },
+  "contributors": [
+    "Ida Rosvall <ir222gn@student.lnu.se"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-hbs": "^2.3.4",
+    "helmet": "^4.4.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^31.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.7"
+  },
+  "eslintConfig": {
+    "extends": "@lnu"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,hbs,html,css"
+  }
+}
