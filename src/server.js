@@ -13,6 +13,10 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { router } from './routes/router.js'
 
+// Socket.io: To add Socket.io support
+import http from 'http'
+import { Server } from 'socket.io'
+
 /**
  * The main function of the application.
  */
@@ -41,18 +45,39 @@ const main = () => {
     // Populates the request object with a body object (req.body).
     app.use(express.urlencoded({ extended: false }))
 
+    // Webhook: Enable body parsing of application/json
+    // Populates the request object with a body object (req.body).
+    app.use(express.json())
+
     // Serve static files.
     app.use(express.static(join(directoryFullName, '..', 'public')))
 
+    // Add trust proxy for using the application in production.
     if (app.get('env') === 'production') {
       console.log('Running in production')
       app.set('trust proxy', 1)
     }
 
+    // Socket.io: Add socket.io to the Express project
+    const server = http.createServer(app)
+    const io = new Server(server)
+
+    // Socket.io; Not nessessery, but nice to log when users connect/disconnect
+    io.on('connection', (socket) => {
+      console.log('a user connected')
+
+      socket.on('disconnect', () => {
+        console.log('user disconnected')
+      })
+    })
+
     // middleware to be executed before the routes.
     app.use((req, res, next) => {
       // Pass the base URL to the views.
       res.locals.baseURL = baseURL
+
+      // Socket.io: Add Socket.io to the Response-object to make it available in controllers.
+      res.io = io
 
       next()
     })
@@ -86,7 +111,7 @@ const main = () => {
     })
 
     // Starts the HTTP server listening for connections.
-    app.listen(process.env.PORT, () => {
+    server.listen(process.env.PORT, () => {
       console.log(`Server running at http://localhost:${process.env.PORT}`)
       console.log('Press Ctrl-C to terminate...')
     })

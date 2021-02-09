@@ -24,7 +24,8 @@
     "express-hbs": "^2.3.4",
     "helmet": "^4.4.1",
     "http-errors": "^1.8.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "socket.io": "^3.1.1"
   },
   "devDependencies": {
     "@lnu/eslint-config": "^1.1.2",
