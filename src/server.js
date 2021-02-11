@@ -28,7 +28,14 @@ const main = () => {
     const baseURL = process.env.BASE_URL || '/'
 
     // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
-    app.use(helmet())
+    app.use(
+      helmet.contentSecurityPolicy({
+        directives: {
+          ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+          'img-src': ["'self'", 'secure.gravatar.com', 'gitlab.lnu.se']
+        }
+      })
+    )
 
     // Set up a morgan logger using the dev format for log entries.
     app.use(logger('dev'))

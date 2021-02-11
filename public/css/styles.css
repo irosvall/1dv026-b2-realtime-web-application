@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+/* ------ Grundstilen för sidorna ----- */
+
+html {
+  height: 100%;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Ta bort inbyggda marginaler och ändra box-sizing */
+html, body, nav, header, main, aside, footer, section, div, figure {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  color: #000000;
+  padding: 0 7px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+body {
+  position: relative;
+  min-height: calc(100vh - 66px);
+  background-color: rgb(248, 246, 244);
+  margin-top: 66px; /* Added because of the fixed header */
+  padding-bottom: 64px; /* Added because of the absolute footer */
+}
+
+h1 {
+  color: #36485a;
+  font-size: 1.8em;
+  margin: 0;
+  padding: 0.6em 0;
+}
+
+/* ------ Header Styles ----- */
+nav {
+  background-color: #e9deda;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.main-nav {
+  margin-right: 0.8em;
+  display: flex;
+  padding: 1em;
+  gap: 1.2em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+}
+
+.home-nav {
+  margin: 0.5em auto 0 1em;
+}
+
+.home-link {
+  font-size: 1.4em;
+  font-weight: 600;
+  padding-left: 5px;
+}
+
+.nav-link {
+  background-color: rgb(255, 255, 255);
+  font-weight: 600;
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+}
+
+.nav-link:link, .nav-link:visited {
+  color: #2e455e;
+} 
+
+.nav-link:hover, .nav-link:active {
+  background-color: #f5f1ef;
+} 
+
+/* ------ Footer Styles ----- */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #e9deda;
+  padding: 8px;
+}
+
+footer p {
+  color: #1f3042;
+  text-align: center;
+  font-size: 0.95em;
+}
+
+/* ------ Issue styles ----- */
+.issue {
+  background-color: rgb(255, 255, 255);
+  margin: 15px auto;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.issue p {
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.issue-header {
+  display: flex;
+}
+
+.issue-header img {
+  max-width: 60px;
+}
+
+.issue-header h3 {
+  margin: 1em 0 0 1em;
+  color: #2e455e;
+}
+
+.issue-header a {
+  margin-left: auto;
+}
+
+.issue-content {
+  height: min-content;
+  white-space: pre-wrap;
+}
+
+.issue-footer {
+  color: #4d4d4d;
+}
+
+/* ------ Link styles ----- */
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #0f3966;
+}
+
+a:hover, a:active {
+  color: #4d647e;
+}
+
+/* ------ Other styles ----- */
+.center-text {
+  text-align: center;
+}

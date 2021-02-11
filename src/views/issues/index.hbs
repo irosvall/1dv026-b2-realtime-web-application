@@ -1,0 +1,22 @@
+<div id="issuescontainer">
+  {{#if viewData.issues.length }}
+  {{#each viewData.issues}}
+  <div class="issue">
+    <div class="issue-header">
+      <img src="{{this.avatar}}" alt="Author's avatar">
+      <h3>{{this.title}}</h3>
+      <a href="./{{this.id}}/edit">Edit</a>
+    </div>
+    <div class="issue-content">
+      <p>{{this.description}}</p>
+    </div>
+    <div class="issue-footer">
+      <h4>{{this.author}}</h4>
+      <time class="issue-time">{{this.createdAt}}</time>
+    </div>
+  </div>
+  {{/each}}
+  {{else}}
+  <p class="information">There are no open issues.</p>
+  {{/if}}
+</div>

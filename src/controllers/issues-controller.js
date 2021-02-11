@@ -20,7 +20,7 @@ export class IssuesController {
    */
   async index (req, res, next) {
     try {
-      let issues = await fetch(`${process.env.PROJECT_ISSUES_LINK}?state=opened`, {
+      let issues = await fetch(`https://gitlab.lnu.se/api/v4/projects/${process.env.GITLAB_PROJECT_ID}/issues?state=opened`, {
         headers: {
           authorization: `bearer ${process.env.ACCESS_TOKEN}`
         }
@@ -28,7 +28,7 @@ export class IssuesController {
       issues = await issues.json()
 
       const viewData = {
-        snippets: issues
+        issues: issues
           .map(issue => ({
             id: issue.id,
             title: issue.title,
