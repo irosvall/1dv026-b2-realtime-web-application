@@ -1,4 +1,4 @@
-<div id="issuescontainer">
+<div id="issues-container">
   {{#if viewData.issues.length }}
   {{#each viewData.issues}}
   <div class="issue">
@@ -20,3 +20,20 @@
   <p class="information">There are no open issues.</p>
   {{/if}}
 </div>
+
+{{!-- Socket.io: Template for the Client. The same as above but with \ before {{}} to not process it on the
+server-side--}}
+<template id="issue-template">
+  <div class="issue-header">
+    <img src="\{{this.avatar}}" alt="Author's avatar">
+    <h3>\{{this.title}}</h3>
+    <a href="./\{{this.id}}/edit">Edit</a>
+  </div>
+  <div class="issue-content">
+    <p>\{{this.description}}</p>
+  </div>
+  <div class="issue-footer">
+    <h4>\{{this.author}}</h4>
+    <time class="issue-time">\{{this.createdAt}}</time>
+  </div>
+</template>

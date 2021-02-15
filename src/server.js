@@ -32,6 +32,9 @@ const main = () => {
       helmet.contentSecurityPolicy({
         directives: {
           ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+          // Added to use handlebars on the client side.
+          'script-src': ["'self'", 'cdn.jsdelivr.net', "'unsafe-eval'"],
+          // Added to display avatars from gitlab.
           'img-src': ["'self'", 'secure.gravatar.com', 'gitlab.lnu.se']
         }
       })

@@ -59,9 +59,9 @@ export class IssuesController {
         id: req.body.id,
         title: req.body.title,
         description: req.body.description,
-        author: req.body.author.name,
-        avatar: req.body.author.avatar_url,
-        createdAt: req.body.created_at
+        author: req.body.author,
+        avatar: req.body.avatar,
+        createdAt: req.body.createdAt
       })
 
       // Webhook: Call is from hook. Skip redirect and flash.
