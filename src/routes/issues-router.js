@@ -13,4 +13,4 @@ export const router = express.Router()
 const controller = new IssuesController()
 
 // Map HTTP verbs and route paths to controller actions.
-router.get('/', controller.index)
+router.get('/', (req, res, next) => controller.index(req, res, next))
