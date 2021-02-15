@@ -44,4 +44,32 @@ export class IssuesController {
       next(error)
     }
   }
+
+  /**
+   * Creates a new issue.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async create (req, res, next) {
+    try {
+      // Socket.io: Send the created task to all subscribers.
+      res.io.emit('issue', {
+        id: req.body.id,
+        title: req.body.title,
+        description: req.body.description,
+        author: req.body.author.name,
+        avatar: req.body.author.avatar_url,
+        createdAt: req.body.created_at
+      })
+
+      // Webhook: Call is from hook. Skip redirect and flash.
+      if (req.headers['x-gitlab-event']) {
+        res.status(200).send('Hook accepted')
+      }
+    } catch (error) {
+      next(error)
+    }
+  }
 }
