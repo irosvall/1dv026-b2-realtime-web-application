@@ -13,7 +13,7 @@ if (issueTemplate) {
   const socket = window.io({ path: `${baseURL}socket.io` })
 
   // Listen for message "issue" from the server
-  socket.on('issue', arg => {
+  socket.on('newIssue', arg => {
     const issueString = hbsTemplate(arg)
     const issue = document.createElement('div')
     issue.classList.add('issue')

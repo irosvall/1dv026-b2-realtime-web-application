@@ -17,4 +17,4 @@ const issuesController = new IssuesController()
 // Map HTTP verbs and route paths to controller actions.
 router.post('/issues', (req, res, next) => controller.authorize(req, res, next),
   (req, res, next) => controller.index(req, res, next),
-  (req, res, next) => issuesController.create(req, res, next))
+  (req, res, next) => issuesController.hook(req, res, next))

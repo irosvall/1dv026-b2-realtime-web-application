@@ -46,25 +46,34 @@ export class IssuesController {
   }
 
   /**
-   * Creates a new issue.
+   * Socket.io: Send websocket events to the client when webhooks are recieved.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  async create (req, res, next) {
+  async hook (req, res, next) {
     try {
-      // Socket.io: Send the created task to all subscribers.
-      res.io.emit('issue', {
+      const details = {
         id: req.body.id,
         title: req.body.title,
         description: req.body.description,
         author: req.body.author,
         avatar: req.body.avatar,
         createdAt: req.body.createdAt
-      })
+      }
 
-      // Webhook: Call is from hook. Skip redirect and flash.
+      if (!req.body.action || req.body.action === 'open') {
+        res.io.emit('newIssue', details)
+      } else if (req.body.action === 'reopen') {
+        res.io.emit('reOpenIssue', details)
+      } else if (req.body.action === 'update') {
+        res.io.emit('updateIssue', details)
+      } else if (req.body.action === 'close') {
+        res.io.emit('closeIssue', details)
+      }
+
+      // Webhook: Send respond to webhook.
       if (req.headers['x-gitlab-event']) {
         res.status(200).send('Hook accepted')
       }

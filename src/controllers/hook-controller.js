@@ -23,7 +23,8 @@ export class HookController {
       description: req.body.object_attributes.description,
       author: req.body.user.name,
       avatar: req.body.user.avatar_url,
-      createdAt: req.body.object_attributes.created_at.slice(0, 10)
+      createdAt: req.body.object_attributes.created_at.slice(0, 10),
+      action: req.body.object_attributes.action
     }
 
     next()
