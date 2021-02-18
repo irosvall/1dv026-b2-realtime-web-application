@@ -1,7 +1,7 @@
 <div id="issues-container">
   {{#if viewData.issues.length }}
   {{#each viewData.issues}}
-  <div class="issue">
+  <div class="issue" id="{{this.id}}">
     <div class="issue-header">
       <img src="{{this.avatar}}" alt="Author's avatar">
       <h3>{{this.title}}</h3>
