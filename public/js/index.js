@@ -23,9 +23,12 @@ if (issueTemplate) {
     insertIssue(issuesContainer, issue)
   })
   socket.on('updateIssue', arg => {
-    document.getElementById(arg.id).remove()
+    deleteElementByID(arg.id)
     const issue = createIssue(arg)
     insertIssue(issuesContainer, issue)
+  })
+  socket.on('closeIssue', arg => {
+    deleteElementByID(arg.id)
   })
 
   /**
@@ -65,5 +68,14 @@ if (issueTemplate) {
         }
       }
     }
+  }
+
+  /**
+   * Deletes an element from the document by specifying its ID.
+   *
+   * @param {string} id - The id of the element.
+   */
+  function deleteElementByID (id) {
+    document.getElementById(id).remove()
   }
 }
