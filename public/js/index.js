@@ -18,6 +18,10 @@ if (issueTemplate) {
     const issue = createIssue(arg)
     issuesContainer.insertBefore(issue, issuesContainer.firstChild)
   })
+  socket.on('reOpenIssue', arg => {
+    const issue = createIssue(arg)
+    insertIssue(issuesContainer, issue)
+  })
   socket.on('updateIssue', arg => {
     document.getElementById(arg.id).remove()
     const issue = createIssue(arg)
