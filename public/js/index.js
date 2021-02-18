@@ -14,12 +14,24 @@ if (issueTemplate) {
 
   // Listen for message "issue" from the server
   socket.on('newIssue', arg => {
+    const issue = createIssue(arg)
+
+    const taskList = document.querySelector('#issues-container')
+    taskList.insertBefore(issue, taskList.firstChild)
+  })
+
+  /**
+   * Creates a div element representing an issue.
+   *
+   * @param {arg} arg - Contains information about the issue.
+   * @returns {HTMLElement} The issue.
+   */
+  function createIssue (arg) {
     const issueString = hbsTemplate(arg)
     const issue = document.createElement('div')
     issue.classList.add('issue')
     issue.innerHTML = issueString
 
-    const taskList = document.querySelector('#issues-container')
-    taskList.insertBefore(issue, taskList.firstChild)
-  })
+    return issue
+  }
 }
