@@ -25,7 +25,7 @@ main {
 body {
   position: relative;
   min-height: calc(100vh - 66px);
-  background-color: rgb(248, 246, 244);
+  background-color: #c2cbd4;
   margin-top: 66px; /* Added because of the fixed header */
   padding-bottom: 64px; /* Added because of the absolute footer */
 }
@@ -39,7 +39,7 @@ h1 {
 
 /* ------ Header Styles ----- */
 nav {
-  background-color: #e9deda;
+  background-color: #3a587e;
   position: fixed;
   top: 0;
   width: 100%;
@@ -58,13 +58,21 @@ nav li {
 }
 
 .home-nav {
-  margin: 0.5em auto 0.5em 1em;
+  margin: 1em auto 1em 1em;
 }
 
 .home-link {
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: 600;
   padding-left: 5px;
+}
+
+.home-link:link, .home-link:visited {
+  color: #f7f7f7;
+}
+
+.home-link:hover, .home-link:active {
+  color: #dddde0;
 }
 
 /* ------ Footer Styles ----- */
@@ -73,20 +81,24 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #e9deda;
+  background-color: #3a587e;
   padding: 8px;
 }
 
 footer p {
-  color: #1f3042;
+  color: #ffffff;
   text-align: center;
   font-size: 0.95em;
 }
 
 /* ------ Issue styles ----- */
+#issues-container {
+  margin: 6em 0 3em 0;
+}
+
 .issue {
   background-color: rgb(255, 255, 255);
-  margin: 15px auto;
+  margin: 1.5em auto;
   padding: 1em;
   border-radius: 10px;
 }
@@ -180,7 +192,7 @@ button {
   font-size: 1.3em;
   font-weight: 600;
   background-color: #3f5268;
-  padding: 0.5em 1.2em 0.5em 1.2em;
+  padding: 0.8em 1.2em 0.8em 1.2em;
   margin: 1em auto;
   cursor: pointer;
 }
