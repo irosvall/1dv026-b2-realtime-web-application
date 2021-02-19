@@ -1,0 +1,21 @@
+<h1>Editing</h1>
+
+<form method="post" action="./{{viewData.iid}}/update">
+  <input type="hidden" name="iid" value="{{viewData.iid}}" />
+  <div class="issue" id="{{viewData.id}}">
+    <div class="issue-header">
+      <img src="{{viewData.avatar}}" alt="Author's avatar">
+      <h3>{{viewData.title}}</h3>
+    </div>
+    <div >
+      <label class="off-screen" for="description">Edit the description:</label>
+      <textarea id="description" name="description" required="required"
+      autofocus="autofocus">{{viewData.description}}</textarea>
+    </div>
+    <div class="issue-footer">
+      <h4>{{viewData.author}}</h4>
+      <time class="issue-time">{{viewData.createdAt}}</time>
+    </div>
+  </div>
+  <button type="submit">Save changes</button>
+</form>

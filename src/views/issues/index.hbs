@@ -6,11 +6,11 @@
       <img src="{{this.avatar}}" alt="Author's avatar">
       <h3>{{this.title}}</h3>
       <div class="issue-header-links">
-        <form method="post" action="./{{this.id}}/close">
+        <form method="post" action="./{{this.iid}}/close">
           <input type="hidden" name="iid" value="{{this.iid}}" />
           <button type="submit">Close</button>
         </form>
-        <a href="./{{this.id}}/edit">Edit</a>
+        <a href="./{{this.iid}}/edit">Edit</a>
       </div>
     </div>
     <div class="issue-content">
@@ -34,11 +34,11 @@ server-side--}}
     <img src="\{{this.avatar}}" alt="Author's avatar">
     <h3>\{{this.title}}</h3>
     <div class="issue-header-links">
-      <form method="post" action="./\{{this.id}}/close">
+      <form method="post" action="./\{{this.iid}}/close">
         <input type="hidden" name="iid" value="\{{this.iid}}" />
         <button type="submit">Close</button>
       </form>
-      <a href="./\{{this.id}}/edit">Edit</a>
+      <a href="./\{{this.iid}}/edit">Edit</a>
     </div>
   </div>
   <div class="issue-content">

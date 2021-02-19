@@ -114,7 +114,7 @@ footer p {
 }
 
 .issue-header-links a {
-  margin-right: 0.7em;
+  margin: 0 0.8em;
 }
 
 .issue-header-links form {
@@ -122,6 +122,10 @@ footer p {
 }
 
 .issue-header-links button {
+  display: inline;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: inherit;
   border: none;
@@ -132,6 +136,7 @@ footer p {
 
 .issue-header-links button:hover, .issue-header-links button:active {
   color: #4d647e;
+  background-color: inherit;
 }
 
 .issue-content {
@@ -141,6 +146,17 @@ footer p {
 
 .issue-footer {
   color: #4d4d4d;
+}
+
+.issue textarea {
+  display: block;
+  resize: vertical;
+  font-size: 1em;
+  font-family: inherit;
+  padding: 0.2em 0.5em;
+  min-width: calc(100% - 1em);
+  height: 12em;
+  margin: 2em 0;
 }
 
 /* ------ Link styles ----- */
@@ -156,7 +172,29 @@ a:hover, a:active {
   color: #4d647e;
 }
 
+/* ------ Button styles ----- */
+
+button {
+  display: block;
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  background-color: #3f5268;
+  padding: 0.5em 1.2em 0.5em 1.2em;
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+button:hover, button:active {
+  background-color: #4f6074;
+}
+
 /* ------ Other styles ----- */
 .center-text {
   text-align: center;
+}
+
+.off-screen {
+  position: absolute;
+  left: -100000px;
 }

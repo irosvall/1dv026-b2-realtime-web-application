@@ -68,6 +68,38 @@ export class IssuesController {
   }
 
   /**
+   * Returns a HTML form for editing a issue.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async edit (req, res, next) {
+    try {
+      let issue = await fetch(`https://gitlab.lnu.se/api/v4/projects/${process.env.GITLAB_PROJECT_ID}/issues/${req.params.id}`, {
+        headers: {
+          authorization: `bearer ${process.env.ACCESS_TOKEN}`
+        }
+      })
+      issue = await issue.json()
+
+      const viewData = {
+        id: issue.id,
+        iid: issue.iid,
+        title: issue.title,
+        description: issue.description,
+        author: issue.author.name,
+        avatar: issue.author.avatar_url,
+        createdAt: issue.created_at.slice(0, 10)
+      }
+
+      res.render('issues/edit', { viewData })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  /**
    * Socket.io: Send websocket events to the client when webhooks are recieved.
    *
    * @param {object} req - Express request object.
