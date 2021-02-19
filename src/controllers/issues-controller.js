@@ -31,6 +31,7 @@ export class IssuesController {
         issues: issues
           .map(issue => ({
             id: issue.id,
+            iid: issue.iid,
             title: issue.title,
             description: issue.description,
             author: issue.author.name,
@@ -40,6 +41,27 @@ export class IssuesController {
       }
 
       res.render('issues/index', { viewData })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  /**
+   * Closes an issue.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async close (req, res, next) {
+    try {
+      await fetch(`https://gitlab.lnu.se/api/v4/projects/${process.env.GITLAB_PROJECT_ID}/issues/${req.body.iid}?state_event=close`, {
+        method: 'PUT',
+        headers: {
+          authorization: `bearer ${process.env.ACCESS_TOKEN}`
+        }
+      })
+      res.redirect('..')
     } catch (error) {
       next(error)
     }
@@ -56,6 +78,7 @@ export class IssuesController {
     try {
       const details = {
         id: req.body.id,
+        iid: req.body.iid,
         title: req.body.title,
         description: req.body.description,
         author: req.body.author,

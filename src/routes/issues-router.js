@@ -14,4 +14,5 @@ const controller = new IssuesController()
 
 // Map HTTP verbs and route paths to controller actions.
 router.get('/', (req, res, next) => controller.index(req, res, next))
-router.get('/close', (req, res, next) => controller.close(req, res, next))
+
+router.post('/:id/close', (req, res, next) => controller.close(req, res, next))

@@ -6,8 +6,8 @@
       <img src="{{this.avatar}}" alt="Author's avatar">
       <h3>{{this.title}}</h3>
       <div class="issue-header-links">
-        <form action="post" action="./{{viewData.id}}/close">
-          <input type="hidden" name="id" value="{{viewData.id}}" />
+        <form method="post" action="./{{this.id}}/close">
+          <input type="hidden" name="iid" value="{{this.iid}}" />
           <button type="submit">Close</button>
         </form>
         <a href="./{{this.id}}/edit">Edit</a>
@@ -34,8 +34,8 @@ server-side--}}
     <img src="\{{this.avatar}}" alt="Author's avatar">
     <h3>\{{this.title}}</h3>
     <div class="issue-header-links">
-      <form action="post" action="./\{{viewData.id}}/close">
-        <input type="hidden" name="id" value="\{{viewData.id}}" />
+      <form method="post" action="./\{{this.id}}/close">
+        <input type="hidden" name="iid" value="\{{this.iid}}" />
         <button type="submit">Close</button>
       </form>
       <a href="./\{{this.id}}/edit">Edit</a>
