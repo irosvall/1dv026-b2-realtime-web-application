@@ -43,14 +43,9 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  height: max-content;
   display: flex;
   justify-content: flex-end;
-}
-.main-nav {
-  margin-right: 0.8em;
-  display: flex;
-  padding: 1em;
-  gap: 1.2em;
 }
 
 nav ul {
@@ -63,7 +58,7 @@ nav li {
 }
 
 .home-nav {
-  margin: 0.5em auto 0 1em;
+  margin: 0.5em auto 0.5em 1em;
 }
 
 .home-link {
@@ -71,21 +66,6 @@ nav li {
   font-weight: 600;
   padding-left: 5px;
 }
-
-.nav-link {
-  background-color: rgb(255, 255, 255);
-  font-weight: 600;
-  padding: 0.5em 1.2em;
-  border-radius: 5px;
-}
-
-.nav-link:link, .nav-link:visited {
-  color: #2e455e;
-} 
-
-.nav-link:hover, .nav-link:active {
-  background-color: #f5f1ef;
-} 
 
 /* ------ Footer Styles ----- */
 
@@ -129,8 +109,29 @@ footer p {
   color: #2e455e;
 }
 
-.issue-header a {
+.issue-header-links {
   margin-left: auto;
+}
+
+.issue-header-links a {
+  margin-right: 0.7em;
+}
+
+.issue-header-links form {
+  display: inline;
+}
+
+.issue-header-links button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: inherit;
+  border: none;
+  font-size: 1em;
+  color: #0f3966;
+  cursor: pointer;
+}
+
+.issue-header-links button:hover, .issue-header-links button:active {
+  color: #4d647e;
 }
 
 .issue-content {
