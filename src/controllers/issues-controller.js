@@ -100,6 +100,32 @@ export class IssuesController {
   }
 
   /**
+   * Updates a specified issue's description.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async update (req, res, next) {
+    try {
+      const description = {
+        description: req.body.description
+      }
+      await fetch(`https://gitlab.lnu.se/api/v4/projects/${process.env.GITLAB_PROJECT_ID}/issues/${req.body.iid}`, {
+        method: 'PUT',
+        body: JSON.stringify(description),
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `bearer ${process.env.ACCESS_TOKEN}`
+        }
+      })
+      res.redirect('..')
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  /**
    * Socket.io: Send websocket events to the client when webhooks are recieved.
    *
    * @param {object} req - Express request object.
