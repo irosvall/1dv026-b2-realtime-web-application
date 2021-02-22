@@ -25,13 +25,13 @@ main {
 body {
   position: relative;
   min-height: calc(100vh - 66px);
-  background-color: #c2cbd4;
+  background-color: #dadbe0;
   margin-top: 66px; /* Added because of the fixed header */
   padding-bottom: 64px; /* Added because of the absolute footer */
 }
 
 h1 {
-  color: #36485a;
+  color: #35487a;
   font-size: 1.8em;
   margin: 0;
   padding: 0.6em 0;
@@ -39,7 +39,7 @@ h1 {
 
 /* ------ Header Styles ----- */
 nav {
-  background-color: #3a587e;
+  background-color: #40548b;
   position: fixed;
   top: 0;
   width: 100%;
@@ -62,17 +62,17 @@ nav li {
 }
 
 .home-link {
-  font-size: 1.5em;
+  font-size: 1.55em;
   font-weight: 600;
   padding-left: 5px;
 }
 
 .home-link:link, .home-link:visited {
-  color: #f7f7f7;
+  color: #ebebee;
 }
 
 .home-link:hover, .home-link:active {
-  color: #dddde0;
+  color: #ffffff;
 }
 
 /* ------ Footer Styles ----- */
@@ -81,7 +81,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #3a587e;
+  background-color: #40548b;
   padding: 8px;
 }
 
@@ -191,14 +191,14 @@ button {
   color: white;
   font-size: 1.3em;
   font-weight: 600;
-  background-color: #3f5268;
+  background-color: #384f8f;
   padding: 0.8em 1.2em 0.8em 1.2em;
   margin: 1em auto;
   cursor: pointer;
 }
 
 button:hover, button:active {
-  background-color: #4f6074;
+  background-color: #44588f;
 }
 
 /* ------ Other styles ----- */
