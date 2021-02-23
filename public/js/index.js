@@ -56,7 +56,7 @@ if (issueTemplate) {
   function insertIssue (container, issue) {
     let issues = document.querySelectorAll('.issue')
 
-    if (issues.lenght === 0) {
+    if (issues.length === 0) {
       container.appendChild(issue)
     } else {
       issues = Array.from(issues)
