@@ -29,15 +29,7 @@ export class IssuesController {
 
       const viewData = {
         issues: issues
-          .map(issue => ({
-            id: issue.id,
-            iid: issue.iid,
-            title: issue.title,
-            description: issue.description,
-            author: issue.author.name,
-            avatar: issue.author.avatar_url,
-            createdAt: issue.created_at.slice(0, 10)
-          }))
+          .map(issue => (this.getViewData(issue)))
       }
 
       res.render('issues/index', { viewData })
@@ -83,19 +75,29 @@ export class IssuesController {
       })
       issue = await issue.json()
 
-      const viewData = {
-        id: issue.id,
-        iid: issue.iid,
-        title: issue.title,
-        description: issue.description,
-        author: issue.author.name,
-        avatar: issue.author.avatar_url,
-        createdAt: issue.created_at.slice(0, 10)
-      }
+      const viewData = this.getViewData(issue)
 
       res.render('issues/edit', { viewData })
     } catch (error) {
       next(error)
+    }
+  }
+
+  /**
+   * Filtrates the information the issue contains to necessary information for a view.
+   *
+   * @param {object} issue - The issue.
+   * @returns {object} Filtrated issue data for a view.
+   */
+  getViewData (issue) {
+    return {
+      id: issue.id,
+      iid: issue.iid,
+      title: issue.title,
+      description: issue.description,
+      author: issue.author.name,
+      avatar: issue.author.avatar_url,
+      createdAt: issue.created_at.slice(0, 10)
     }
   }
 
