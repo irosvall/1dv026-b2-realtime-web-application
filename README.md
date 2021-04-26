@@ -1,5 +1,9 @@
 # Assignment B2 - Realtime Web Application
 
+This application was a project I made as a part of my studies at Linnaeus University, completed 2021-02-26.
+
+## The assignment description
+
 In this assignment, you will be writing a web application that includes realtime web technologies such as WebSocket and webhook. You must put the application into production on a public server. 
 
 The idea behind the application is that you should be able to list [issues](https://docs.gitlab.com/ee/user/project/issues/) from a GitLab repository that you create yourself in the group "Assignment B2" (e.g., <https://gitlab.lnu.se/1dv026/student/xx222xx/assignment-b2/>). You have "manager"-access to this group so that you can create your own repos and test the application by creating issues (and comments) and include these in your application through the [GitLab API](https://docs.gitlab.com/ee/api/api_resources.html) and [webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html).
